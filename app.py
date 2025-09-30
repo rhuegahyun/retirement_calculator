@@ -149,7 +149,7 @@ x = df["연도"]
 ax.bar(x - 0.2, df["총 자산"], width=bar_width, label="Total Asset")
 ax.bar(x + 0.2, df["연 인출액(4%)"], width=bar_width, label="Annual withdrawal of 4%")
 
-ax.set_xlabel("연도")
+ax.set_xlabel("Year")
 
 def won_formatter(x, pos):
     if x >= 100000000:
@@ -160,7 +160,7 @@ def won_formatter(x, pos):
         return f"{int(x)}원"
 
 ax.yaxis.set_major_formatter(mticker.FuncFormatter(won_formatter))
-ax.set_ylabel("금액")
+ax.set_ylabel("Won")
 ax.legend()
 st.pyplot(fig)
 
