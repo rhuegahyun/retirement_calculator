@@ -6,9 +6,6 @@ import matplotlib.ticker as mticker
 plt.rc('font', family='Malgun Gothic')
 plt.rc('axes', unicode_minus=False)
 
-# -----------------------
-# 단위 변환 함수
-# -----------------------
 def format_currency(value):
     if value >= 100000000:
         return f"{round(value/100000000, 1)} 억"
@@ -18,7 +15,6 @@ def format_currency(value):
         return f"{round(value):,} 원"
     else:
         return f"{int(value)} 원"
-
 
 def simulate(seed_money, monthly_invest, annual_invest_increase,
              annual_return, annual_dividend_yield, dividend_growth,
@@ -63,8 +59,7 @@ def simulate(seed_money, monthly_invest, annual_invest_increase,
 
             monthly_invest += annual_invest_increase
 
-    else:  
-
+    else:
         asset = seed_money
         invest = monthly_invest
 
@@ -85,7 +80,6 @@ def simulate(seed_money, monthly_invest, annual_invest_increase,
                 "연 인출액(4%)": asset * 0.04,
                 "월 인출액(4%)": asset * 0.04 / 12,
             })
-
             invest += annual_invest_increase
 
     return pd.DataFrame(result)
@@ -144,10 +138,10 @@ st.download_button(
 
 fig, ax = plt.subplots(figsize=(10, 5))
 bar_width = 0.35
-x = df["연도"]
+x = df["Year"]
 
-ax.bar(x - 0.2, df["총 자산"], width=bar_width, label="Total Asset")
-ax.bar(x + 0.2, df["연 인출액(4%)"], width=bar_width, label="Annual withdrawal of 4%")
+ax.bar(x - 0.2, df["Total Asset"], width=bar_width, label="Total Asset")
+ax.bar(x + 0.2, df["Withdrawal per year(4%)"], width=bar_width, label="Annual withdrawal of 4%")
 
 ax.set_xlabel("Year")
 
