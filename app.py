@@ -140,18 +140,18 @@ fig, ax = plt.subplots(figsize=(10, 5))
 bar_width = 0.35
 x = df["연도"]
 
-ax.bar(x - 0.2, df["Total Asset"], width=bar_width, label="Total Asset")
-ax.bar(x + 0.2, df["Withdrawal per year(4%)"], width=bar_width, label="Annual withdrawal of 4%")
+ax.bar(x - 0.2, df["총 자산"], width=bar_width, label="Total Asset")
+ax.bar(x + 0.2, df["연 인출액(4%)"], width=bar_width, label="Annual withdrawal of 4%")
 
 ax.set_xlabel("Year")
 
 def won_formatter(x, pos):
-    if x >= 100000000:
-        return f"{x/100000000:.1f}억"
-    elif x >= 10000:
-        return f"{int(x/10000)}만"
+    if x >= 1e8:
+        return f"{x/1e8:.1f}B"
+    elif x >= 1e4:
+        return f"{int(x/1e4)}M"
     else:
-        return f"{int(x)}원"
+        return f"{int(x)}"
 
 ax.yaxis.set_major_formatter(mticker.FuncFormatter(won_formatter))
 ax.set_ylabel("Won")
