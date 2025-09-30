@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mticker
 
-mpl.rcParams['font.family'] = 'NanumGothic'
+# mpl.rcParams['font.family'] = 'NanumGothic'
 plt.rc('axes', unicode_minus=False)
 
 def format_currency(value):
@@ -146,12 +146,10 @@ ax.bar(x + 0.2, df["연 인출액(4%)"], width=bar_width, label="Annual withdraw
 ax.set_xlabel("Year")
 
 def won_formatter(x, pos):
-    if x >= 1e8:
-        return f"{x/1e8:.1f} 억"
-    elif x >= 1e7:
-        return f"{int(x/1e7)} 천만"
-    elif x >= 1e4:
-        return f"{int(x/1e4)} 만"
+    if x >= 1e9:
+        return f"{x/1e9:.1f} B"
+    elif x >= 1e6:
+        return f"{int(x/1e6)} M"
     else:
         return f"{int(x)}"
 
