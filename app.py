@@ -138,7 +138,7 @@ st.download_button(
 
 fig, ax = plt.subplots(figsize=(10, 5))
 bar_width = 0.35
-x = df["Year"]
+x = df["연도"]
 
 ax.bar(x - 0.2, df["Total Asset"], width=bar_width, label="Total Asset")
 ax.bar(x + 0.2, df["Withdrawal per year(4%)"], width=bar_width, label="Annual withdrawal of 4%")
